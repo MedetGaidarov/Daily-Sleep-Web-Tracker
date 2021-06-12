@@ -5,6 +5,7 @@ import React , {useState} from 'react'
 import AddTask from './components/AddTask';
 import Tasks  from './components/Tasks';
 function App() {
+  const [showAddTask, setShowAddTask] = useState('')
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -23,6 +24,8 @@ function App() {
     },
   ]);
 
+  
+
   // delete task
 
   const deleteTask = (id) => {
@@ -37,9 +40,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <AddTask onAdd = {addTask}/>
-      <Tasks tasks={tasks} onDelete={deleteTask}/>
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {showAddTask && <AddTask onAdd={addTask} />}
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }

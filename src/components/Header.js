@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-const Header = ({title}) => {
+import Button from './Button'
+const Header = ({title, onAdd, showAdd}) => {
     return (
       <header className="header">
         <div className="container">
           <div className="row">
             <div className="d-flex justify-content-between">
               <h1>{title}</h1>
-              <button className="btn btn-success ">Add</button>
+              <Button
+                text={showAdd ? "Close" : "Add"}
+                color="green"
+                onClick={onAdd}
+              />
             </div>
           </div>
         </div>
