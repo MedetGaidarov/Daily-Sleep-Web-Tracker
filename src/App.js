@@ -26,14 +26,20 @@ function App() {
   // delete task
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id))
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const addTask = (task) => {
+    
+    setTasks([...tasks, task])
+  
   };
 
   return (
     <div className="App">
       <Header />
-      <AddTask />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      <AddTask onAdd = {addTask}/>
+      <Tasks tasks={tasks} onDelete={deleteTask}/>
     </div>
   );
 }
