@@ -41,12 +41,13 @@ function App() {
   const toogleReminder = (id) =>
   {
     // setTasks(tasks.filter((task) => task.id !== id));
-   setTasks(
-     tasks.map((task) =>
-       task.id === id ? { ...tasks, reminder: !task.reminder } : tasks
-     )
-   );
+    
 
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
 
 
   }
