@@ -38,14 +38,27 @@ function App() {
   
   };
 
+  const toogleReminder = (id) =>
+  {
+    // setTasks(tasks.filter((task) => task.id !== id));
+   setTasks(
+     tasks.map((task) =>
+       task.id === id ? { ...tasks, reminder: !task.reminder } : tasks
+     )
+   );
+
+
+
+  }
+
   return (
-    <div className="App">
+    <div className="container">
       <Header
         onAdd={() => setShowAddTask(!showAddTask)}
         showAdd={showAddTask}
       />
       {showAddTask && <AddTask onAdd={addTask} />}
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      <Tasks tasks={tasks} onDelete={deleteTask} onToogle = {toogleReminder}/>
     </div>
   );
 }
