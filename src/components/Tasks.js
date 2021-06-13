@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = ({tasks, onDelete, onToogle}) => {
+const Tasks = ({tasks, onDelete, onToogle, showTask}) => {
   return (
     <>
       {tasks.map((task, index) => (
